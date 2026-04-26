@@ -46,11 +46,14 @@ Then for the method, use whichever format fits:
 ```html
 <ul class="steps">
   <li>
-    <span class="step-name">Step name</span>
-    <span class="step-detail">Details here.</span>
+    <div>
+      <span class="step-name">Step name</span>
+      <span class="step-detail">Details here.</span>
+    </div>
   </li>
 </ul>
 ```
+Note: the `<div>` wrapper is required — without it, `step-name` and `step-detail` become separate grid items and the text collapses into a narrow column.
 
 ## Step 3 — Add to index
 
