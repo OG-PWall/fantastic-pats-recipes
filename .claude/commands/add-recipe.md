@@ -1,12 +1,14 @@
 # Add Recipe
 
-Add a new recipe to the personal recipe site at `/Users/johnwall/fantastic-pats-recipes/site/` in schedule format.
+Add a new recipe to the personal recipe site at `/Users/johnwall/fantastic-pats-recipes/site/`.
 
 ## Rules — always, no exceptions
 - All temperatures in **Fahrenheit** (convert from Celsius if needed)
 - All measurements in **grams** (convert from cups, oz, lbs, ml if needed)
 - No stories, no prose narrative, no "tips" sections — just what to do and when
-- Use the schedule format (Day 1 / Day 2 timeline, or single-day if appropriate)
+- **Choose the right format:**
+  - **Schedule format** — use when timing matters: bread, fermentation, multi-stage bakes, anything with rests or temperature windows. Uses `.day-label` + `.event` blocks.
+  - **Numbered steps format** — use for simple recipes where steps just happen in order with no meaningful timing (sauces, dressings, rubs, quick sides). Uses `.steps` `<ul>` with `.step-name` / `.step-detail` inside each `<li>`.
 
 ## Step 1 — Get the recipe
 
@@ -28,13 +30,27 @@ File path: `/Users/johnwall/fantastic-pats-recipes/site/recipes/<slug>.html`
 
 Slug: kebab-case from recipe name (e.g. "White Sandwich Loaf" → `white-sandwich-loaf.html`)
 
-Use `/Users/johnwall/fantastic-pats-recipes/site/recipes/whole-wheat-sourdough-schedule.html` as the structural template. Match it exactly:
+Use `/Users/johnwall/fantastic-pats-recipes/site/recipes/whole-wheat-sourdough-schedule.html` as the structural template. Always include:
 - `<link rel="stylesheet" href="../style.css">`
 - Nav with `← Recipes` back link to `../index.html`
 - Page title and sub — include source link if a URL was provided: `· <a href="URL" target="_blank" rel="noopener">original ↗</a>`
 - "Ingredients at a glance" section using `.ing-table` with grouped rows
-- Timeline using `.day-label` + `.event` blocks (`.event-time` / `.event-name` / `.event-detail`)
+
+Then for the method, use whichever format fits:
+
+**Schedule format** (timing matters):
+- `.day-label` + `.event` blocks with `.event-time` / `.event-name` / `.event-detail`
 - Times are illustrative — pick a realistic start time for that type of recipe, and note to adjust
+
+**Numbered steps format** (order-only, no meaningful timing):
+```html
+<ul class="steps">
+  <li>
+    <span class="step-name">Step name</span>
+    <span class="step-detail">Details here.</span>
+  </li>
+</ul>
+```
 
 ## Step 3 — Add to index
 
